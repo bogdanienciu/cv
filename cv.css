@@ -49,5 +49,6 @@ table.custom tr td, table.custom tr th {
 } 
 
 .progress {
+  height: 15px;
    margin-bottom: 10px;
  }
