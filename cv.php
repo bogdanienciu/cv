@@ -1,4 +1,4 @@
-<?php require_once('data_from_file.php'); ?>
+<?php require_once('data/from_file.php'); ?>
 
 <!DOCTYPE html>
 <html>

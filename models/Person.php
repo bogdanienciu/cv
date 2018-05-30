@@ -17,7 +17,7 @@ class Person {
 	private $language;
 	private $personal;
 
-	public function __construct($name, $dateofbirth, $address, $mail, $phone, $skype, $profilepicture, $linkedinprofile, $githubprofile) {
+	public function __construct($name = '', $dateofbirth = '', $address = '', $mail = '', $phone = '', $skype = '', $profilepicture = '', $linkedinprofile = '', $githubprofile = '') {
 		$this->name = $name;
 		$this->dateofbirth = $dateofbirth;
 		$this->address = $address;

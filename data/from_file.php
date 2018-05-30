@@ -1,5 +1,5 @@
 <?php 
-	require __DIR__.'/vendor/autoload.php';
+	require 'vendor/autoload.php';
 
 	require_once('models/FileReader.php');
 	require_once('models/Person.php');
