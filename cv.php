@@ -1,4 +1,4 @@
-<?php require_once('data.php'); ?>
+<?php require_once('data_from_file.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -35,21 +35,21 @@
       <div class="col-sm-4">
         <div class="row">
           <div class="col-sm-12">
-            <img src="<?php echo $profilepicture; ?>" alt="poza" class="img-responsive">
+            <img src="<?php echo $person->getProfilepicture(); ?>" alt="poza" class="img-responsive">
           </div>  
         </div>
         <div class="row">
           <div class="col-sm-12">
             <div class="contact">
-              <a href="<?php echo $linkedinprofile; ?>" target="_blank">
+              <a href="<?php echo $person->getLinkedinprofile(); ?>" target="_blank">
                 <img src="https://image.ibb.co/m7Deao/icon_linkedin.png" alt="icon_linkedin" border="0">
               </a>
-              <?php if ($githubprofile != ''): ?>
-              <a href="<?php echo $githubprofile; ?>" target="_blank">
+              <?php if ($person->getGithubprofile() != ''): ?>
+              <a href="<?php echo $person->getGithubprofile(); ?>" target="_blank">
                 <img src="https://image.ibb.co/j9035o/icone_github.png" alt="icone_github" border="0">
               </a>
               <?php endif; ?>
-              <a href="mailto:<?php echo $email; ?>">
+              <a href="mailto:<?php echo $person->getMail(); ?>">
                 <img src="https://image.ibb.co/n20go8/icon_mail.png" alt="icon_mail" border="0">
               </a>
             </div>
@@ -60,7 +60,7 @@
       <div class="col-sm-8 bg-sectiunea2">
         <div class="row ">
           <div class="col-sm-12">
-            <h2><?php echo $name; ?></h2>
+            <h2><?php echo $person->getName(); ?></h2>
           </div>  
         </div>
         <div class="row">
@@ -76,15 +76,15 @@
             <table class="table table-condensed">
                 <tr>
                   <th>Name</th>
-                  <td><?php echo $name; ?></td>
+                  <td><?php echo $person->getName(); ?></td>
                 </tr>
                 <tr>
                   <th>Date of birth</th>
-                  <td><?php echo $dateofbirth; ?></td>
+                  <td><?php echo $person->getDateofbirth(); ?></td>
                 </tr>
                 <tr>
                   <th>Address</th>
-                  <td><?php echo $address; ?></td>
+                  <td><?php echo $person->getAddress(); ?></td>
                 </tr>
               </table>
           </div>
@@ -92,15 +92,15 @@
             <table class="table table-condensed">
                 <tr>
                   <th>Email</th>
-                  <td><?php echo $email; ?></td>
+                  <td><?php echo $person->getMail(); ?></td>
                 </tr>
                 <tr>
                   <th>Phone</th>
-                  <td><?php echo $phone; ?></td>
+                  <td><?php echo $person->getPhone(); ?></td>
                 </tr>
                 <tr>
                   <th>Skype</th>
-                  <td><?php echo $skype; ?></td>
+                  <td><?php echo $person->getSkype(); ?></td>
                 </tr>
               </table>
           </div>
@@ -115,12 +115,11 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="coding">
-
-                <?php foreach($data['coding_skills'] as $skill): ?>
-                    <p><?php echo $skill["name"]; ?></p>
+                <?php foreach($person->getSkills() as $skill): ?>
+                    <p><?php echo $skill->getName(); ?></p>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $skill["percent"]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill["percent"]; ?>%;">
-                        <?php echo $skill["percent"]; ?>%
+                      <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $skill->getName(); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill->getPercent(); ?>%;">
+                        <?php echo $skill->getPercent(); ?>%
                       </div>
                     </div>
                   <?php endforeach; ?>
@@ -132,11 +131,11 @@
             <div class="col-sm-12">
               <div class="assets"> 
 
-                <?php foreach ($data['assets_skills'] as $skill): ?>
-                  <p><?php echo $skill['name']; ?></p>
+                <?php foreach ($person->getSkillsAssets() as $skill): ?>
+                  <p><?php echo $skill->getName(); ?></p>
                   <div class="progress">
-                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $skill["percent"]; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill["percent"]; ?>%;">
-                      <?php echo $skill["percent"]; ?>%
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="<?php echo $skill->getPercent(); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill->getPercent(); ?>%;">
+                      <?php echo $skill->getPercent(); ?>%
                     </div>
                   </div>
                 <?php endforeach; ?>
@@ -152,16 +151,16 @@
             </div>
           </div>
 
-          <?php foreach ($data['experiences'] as $experience): ?>
+          <?php foreach ($person->getExperience() as $experience): ?>
             <div class="row">
               <div class="col-sm-3">
-                <h4><?php echo $experience['date']; ?></h4>
+                <h4><?php echo $experience->getDate(); ?></h4>
               </div>
               <div class="col-sm-9">
-                 <h4><?php echo $experience['title']; ?></h4>
-                <h5><?php echo $experience['subtitle']; ?></h5>
+                 <h4><?php echo $experience->getTitle(); ?></h4>
+                <h5><?php echo $experience->getSubtitle(); ?></h5>
                 <ul>
-                  <?php foreach ($experience['responsabilities'] as $responsability): ?>
+                  <?php foreach ($experience->getResponsabilities() as $responsability): ?>
                     <li><?php echo $responsability; ?></li>
                   <?php endforeach; ?>
                 </ul>
@@ -177,14 +176,14 @@
             </div>
           </div>
 
-            <?php foreach ($data['education'] as $education): ?>
+            <?php foreach ($person->getEducation() as $education): ?>
               <div class="row">
                 <div class="col-sm-3">
-                  <h4><?php echo $education['date']; ?></h4>
+                  <h4><?php echo $education->getDate(); ?></h4>
                 </div>
                 <div class="col-sm-9">
-                   <h4><?php echo $education['title']; ?></h4>
-                  <h5><?php echo $education['subtitle']; ?></h5>
+                   <h4><?php echo $education->getTitle(); ?></h4>
+                  <h5><?php echo $education->getSubtitle(); ?></h5>
                 </div>
               </div>
             <?php endforeach; ?>
@@ -196,17 +195,10 @@
               <h2 class="subtitle">Personal Skills</h2>
             </div>
           </div>
+         
           <div class="row">
             <div class="col-sm-3">
-              Mother tongue
-            </div>
-            <div class="col-sm-9">
-              Romanian
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-3">
-              Other language(s)
+              Foreign language(s)
             </div>
             <div class="col-sm-9">
               <table class="table table-bordered">
@@ -222,12 +214,12 @@
                   <td>Spoken interaction</td>
                   <td>Spoken production</td>
                 </tr>
-                <?php foreach ($data['languages'] as $language): ?>
+                <?php foreach ($person->getLanguage() as $language): ?>
                   <tr>
-                    <td class="text-center"><?php echo $language['name']; ?></td>
-                    <td colspan="2" class="text-center">C1</td>
-                    <td colspan="2" class="text-center">B1</td>
-                    <td>B1</td>
+                    <td class="text-center"><?php echo $language->getName(); ?></td>
+                    <td colspan="2" class="text-center"><?php echo $language->getUnderstanding(); ?></td>
+                    <td colspan="2" class="text-center"><?php echo $language->getSpeaking(); ?></td>
+                    <td><?php echo $language->getWriting(); ?></td>
                   </tr>
                 <?php endforeach; ?>
                 
@@ -239,46 +231,21 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-sm-3">
-              Communication skills
+          <?php foreach ($person->getPersonal() as $personal): ?>
+            <div class="row">
+              <div class="col-sm-3">
+                <p><?php echo $personal->getName(); ?></p>
+              </div>
+              <div class="col-sm-9">
+                <ul>
+                  <?php foreach ($personal->getResponsibilities() as $responsability): ?>
+                    <li><?php echo $responsability; ?></li>
+                  <?php endforeach; ?> 
+                </ul>
+              </div>
             </div>
-            <div class="col-sm-9">
-              <ul>
-                <li>good communicatioanl skills gained through my experience abroad</li>
-                <li>excellent interpersonal skills</li>
-              </ul>
-            </div>
-          </div>
+          <?php endforeach; ?> 
 
-          <div class="row">
-            <div class="col-sm-3">
-              Organisational / managerial skills
-            </div>
-            <div class="col-sm-9">
-              <ul>
-                <li>being able to work under pressure and work to deadlines, skills gained at Pakweg Courier BVBA</li>
-                <li>time management skills and capable of working well with others</li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-3">
-              Digital skills
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-3">
-              
-            </div>
-            <div class="col-sm-9">
-              <ul>
-                <?php foreach ($data['digital'] as $digital): ?>
-                  <li><?php echo $digital ?></li>
-                 <?php endforeach; ?> 
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
 

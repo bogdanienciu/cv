@@ -62,8 +62,8 @@
 		// 		$even = [];
 		// 		$odd = [];
 
-		// 		for ($x = 1; $x <= $numar; $x++) {
-		//     		if ($x %2 == 0) {
+		// 		for ($x = 1; $x <=r; $x++) {
+		//     		if ($x %2 == 0) { $numa
 		//     			$even[] = $x*(2); 
 		//     		} else 	{
 		//     			$odd[] = $x*(-2);
@@ -76,28 +76,69 @@
 		// 		 ];
 		// 	}
 
-		// $rezultat4 = test_even_odd_multiplied(10);
-		// dump($rezultat4);
+	// 	$rezultat4 = test_even_odd_multiplied(10);
+	// 	dump($rezultat4);
 
 
-	function before_after($numar1, $numar2) {
-		$before = [];
-		$after = [];
+	// function before_after($numar1, $numar2) {
+	// 	$before = [];
+	// 	$after = [];
 
-		for ($x = -$numar1; $x <= $numar1; $x++) {
-    		if ($x  < $numar2) {
-    			$before[] = $x; 
-    		} else 	{
-    			$after[] = $x;
-    		}
+	// 	for ($x = -$numar1; $x <= $numar1; $x++) {
+ //    		if ($x  < $numar2) {
+ //    			$before[] = $x; 
+ //    		} else 	{
+ //    			$after[] = $x;
+ //    		}
+	// 	}
+
+	// 	return [
+	// 		'before' => $before,
+	// 		'after' => $after,
+	// 	];
+	// }
+	// $rezultat5 = before_after(10, 8);
+	// 	dump($rezultat5);
+
+
+
+		// Folosind functiile de mai jos, completati codul in asa fel incat sa puteti avea o variabila $result de forma
+		// in care pe cheia 'match' sa aveti toate numerele pare mai mici decat 5,
+		// iar pe cheia 'notmatch' restul numerelor
+
+	function test1($margin) {
+		$match = [];
+		$notmatch = [];
+
+		for ($i = -$margin; $i <= $margin; $i++) {
+			$ok = check($i);
+
+			if ($ok == true) {
+				$match[] = $i;
+			} 
+			else {
+				$notmatch[] = $i;
+			}
 		}
 
 		return [
-			'before' => $before,
-			'after' => $after,
-		];
+			'match' => $match,			// returnezi cheia 'match' cu valorile din $match,
+			'notmatch' => $notmatch, 	// si cheia 'notmatch' cu valorile din $notmatch
+		];	
 	}
-	$rezultat5 = before_after(10, 8);
-		dump($rezultat5);
+
+	function check($number) {
+		// if ($number %2 == 0 && $number < 0) {
+		// if ($number %2 == 0) {
+		if ($number %2 == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	$rezultat6 = test1(10);
+	dump($rezultat6);
 
 ?>
