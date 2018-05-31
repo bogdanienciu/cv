@@ -1,5 +1,5 @@
 <?php require_once('data/mysql.php'); ?>
-
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +29,7 @@
         </div>
       </div>
     </nav>
-
+  
   <div class="container page">
     <div class="row">
       <div class="col-sm-4">
@@ -65,10 +65,10 @@
         </div>
         <div class="row">
           <div class="col-sm-6">
-            I am a hard working, honest individual. I am a good timekeeper, always willing to learn new skills. I am able to work independently in busy environments and also within a team setting. I am outgoing and tactful, and able to listen effectively when solving problems.
+            <?php echo $person->getText1(); ?>
           </div>
           <div class="col-sm-6">
-            I am an enthusiastic, self-motivated, reliable, responsible. I am a mature team worker and adaptable to all challenging situations. I am able to work well both in a team environment as well as using own initiative. I am able to work well under pressure and to strict deadlines.
+            <?php echo $person->getText2(); ?>
           </div>
         </div>
         <div class="row">

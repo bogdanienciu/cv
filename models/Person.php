@@ -1,5 +1,6 @@
 <?php
 
+
 require_once('models/Experience.php');
 require_once('models/Skill.php');
 require_once('models/Language.php');
@@ -17,7 +18,7 @@ class Person {
 	private $language;
 	private $personal;
 
-	public function __construct($name = '', $dateofbirth = '', $address = '', $mail = '', $phone = '', $skype = '', $profilepicture = '', $linkedinprofile = '', $githubprofile = '') {
+	public function __construct($name = '', $dateofbirth = '', $address = '', $mail = '', $phone = '', $skype = '', $profilepicture = '', $linkedinprofile = '', $githubprofile = '', $text1 = '', $text2 = '') {
 		$this->name = $name;
 		$this->dateofbirth = $dateofbirth;
 		$this->address = $address;
@@ -27,36 +28,53 @@ class Person {
 		$this->profilepicture = $profilepicture;
 		$this->linkedinprofile = $linkedinprofile;
 		$this->githubprofile = $githubprofile;
+		$this->text1 = $text1;
+		$this->text2 = $text2;
 
 	}
 
 	public function getProfilepicture() {
 		return $this->profilepicture;
 	}
+
 	public function getLinkedinprofile() {
 		return $this->linkedinprofile;
 	}
+
 	public function getGithubprofile() {
 		return $this->githubprofile;
 	}
 
 	public function getName() {
+
 		return $this->name;
 	}
+
 	public function getDateofbirth() {
 		return $this->dateofbirth;
 	}
+
 	public function getAddress() {
 		return $this->address;
 	}
+
 	public function getMail() {
 		return $this->mail;
 	}
+
 	public function getPhone() {
 		return $this->phone;
 	}
+
 	public function getSkype() {
 		return $this->skype;
+	}
+
+	public function getText1() {
+		return $this->text1;
+	}
+	public function getText2() {
+		return $this->text2;
 	}
 
 	public function setSkills($skills) {
@@ -67,6 +85,7 @@ class Person {
 		}
 
 		$this->skills = $result;
+
 	}
 
 	public function getSkills() {

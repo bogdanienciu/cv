@@ -19,6 +19,10 @@ interface Reader {
 
 	public function getGithubprofile();
 
+	public function getText1();
+
+	public function getText2();
+
 	public function getCodingSkills();
 
 	public function getAssetsSkills();

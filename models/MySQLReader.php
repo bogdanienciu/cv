@@ -12,6 +12,7 @@ class MySQLReader implements Reader
 
 	public function __construct($id)
 	{
+
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
@@ -32,10 +33,12 @@ class MySQLReader implements Reader
 	}
 
 	public function getName() {
+		
 		return $this->personRow['name'];
 	}
 
 	public function getDateofbirth() {
+
 		return $this->personRow['date_of_birth'];
 	}
 
@@ -65,6 +68,15 @@ class MySQLReader implements Reader
 
 	public function getGithubprofile() {
 		return $this->personRow['githubprofile'];
+	}
+
+	public function getText1() {
+		
+		return $this->personRow['text1'];
+	}
+	public function getText2() {
+		
+		return $this->personRow['text2'];
 	}
 
 	public function getCodingSkills() {

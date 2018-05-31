@@ -6,7 +6,7 @@
 
 	$reader = new MySQLReader(1);
 
-	$person = new Person($reader->getName(), $reader->getDateofbirth(), $reader->getAddress(), $reader->getEmail(), $reader->getPhone(), $reader->getSkype(), $reader->getProfilepicture(), $reader->getLinkedinprofile(), $reader->getGithubprofile());
+	$person = new Person($reader->getName(), $reader->getDateofbirth(), $reader->getAddress(), $reader->getEmail(), $reader->getPhone(), $reader->getSkype(), $reader->getProfilepicture(), $reader->getLinkedinprofile(), $reader->getGithubprofile(), $reader->getText1(), $reader->getText2());
 
 	$person->setSkills($reader->getCodingSkills());
 	$person->setSkillsAssets($reader->getAssetsSkills());
