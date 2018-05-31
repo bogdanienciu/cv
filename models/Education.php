@@ -6,19 +6,19 @@
  */
 class Education
 {
-	private $date;
+	private $period;
 	private $title;
 	private $subtitle;
 	
-	public function __construct($date, $title, $subtitle)
+	public function __construct($period, $title, $subtitle)
 	{
-		$this->date = $date;
+		$this->period = $period;
 		$this->title = $title;
 		$this->subtitle = $subtitle;
 	}
 
-	public function getDate() {
-		return $this->date;
+	public function getPeriod() {
+		return $this->period;
 	}
 
 	public function getTitle() {

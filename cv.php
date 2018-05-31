@@ -1,4 +1,4 @@
-<?php require_once('data/from_file.php'); ?>
+<?php require_once('data/mysql.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -154,7 +154,7 @@
           <?php foreach ($person->getExperience() as $experience): ?>
             <div class="row">
               <div class="col-sm-3">
-                <h4><?php echo $experience->getDate(); ?></h4>
+                <h4><?php echo $experience->getPeriod(); ?></h4>
               </div>
               <div class="col-sm-9">
                  <h4><?php echo $experience->getTitle(); ?></h4>
@@ -179,7 +179,7 @@
             <?php foreach ($person->getEducation() as $education): ?>
               <div class="row">
                 <div class="col-sm-3">
-                  <h4><?php echo $education->getDate(); ?></h4>
+                  <h4><?php echo $education->getPeriod(); ?></h4>
                 </div>
                 <div class="col-sm-9">
                    <h4><?php echo $education->getTitle(); ?></h4>

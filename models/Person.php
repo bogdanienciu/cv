@@ -91,7 +91,7 @@ class Person {
 		$result = [];
 
 		foreach ($education as $edu) {
-			$result[] = new Education($edu['date'], $edu['title'], $edu['subtitle']);
+			$result[] = new Education($edu['period'], $edu['title'], $edu['subtitle']);
 		}
 		$this->education = $result;
 	}
@@ -105,7 +105,7 @@ class Person {
 		$result = [];
 
 		foreach ($experience as $exp) {
-			$result[] = new Experience($exp['date'], $exp['title'], $exp['subtitle'], $exp['responsabilities']);
+			$result[] = new Experience($exp['period'], $exp['title'], $exp['subtitle'], $exp['responsabilities']);
 		}
 
 		$this->experience = $result;

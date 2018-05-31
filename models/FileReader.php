@@ -1,9 +1,11 @@
 <?php
 
+require_once('models/Reader.php');
+
 /**
  * 
  */
-class FileReader
+class FileReader implements Reader
 {
 	private $lines;
 
@@ -21,41 +23,49 @@ class FileReader
 
 		return $profile[0];
 	}
+
 	public function getDateofbirth() {
 		$profile = explode("#", $this->lines[0]);
 
 		return $profile[1];
 	}
+
 	public function getAddress() {
 		$profile = explode("#", $this->lines[0]);
 
 		return $profile[2];
 	}
+
 	public function getEmail() {
 		$profile = explode("#", $this->lines[0]);
 
 		return $profile[3];
 	}
+
 	public function getPhone() {
 		$profile = explode("#", $this->lines[0]);
 
 		return $profile[4];
 	}
+
 	public function getSkype() {
 		$profile = explode("#", $this->lines[0]);
 
 		return $profile[5];
 	}
+
 	public function getProfilepicture() {
 		$profile = explode("#", $this->lines[0]);
 
 		return $profile[6];
 	}
+
 	public function getLinkedinprofile() {
 		$profile = explode("#", $this->lines[0]);
 
 		return $profile[7];
 	}
+	
 	public function getGithubprofile() {
 		$profile = explode("#", $this->lines[0]);
 
