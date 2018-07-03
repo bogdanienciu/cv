@@ -128,13 +128,6 @@ class FileReader implements Reader
 		return $personal;
 	}
 
-	// public function getDigital() {
-	// 	$digital = [];
-
-	// 	if (isset($this->lines[10]))
-	// 		$digital = $this->format_digital($this->lines[10]);
-	// }
-
 	private function format_skills($skills) {
 		$result = [];
 
@@ -191,8 +184,4 @@ class FileReader implements Reader
 		];
 	}
 
-	// private function format_digital($string) {
-
-	// 	return explode("!", $string);
-	// }
 }
